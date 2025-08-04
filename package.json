@@ -1,8 +1,11 @@
 {
-  "name": "threedadmin",
+  "name": "cz-admin-cli",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "bin": {
+    "cz-admin": "./bin.js"  
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",

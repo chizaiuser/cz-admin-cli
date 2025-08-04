@@ -1,0 +1,37 @@
+{
+  "id": "4982132",
+  "name": "houtaiguan'li",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "14918564",
+      "name": "账号管理",
+      "font_class": "zu1774",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "36081773",
+      "name": "AI模型管理",
+      "font_class": "AImoxingguanli",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "3702552",
+      "name": "管理员管理",
+      "font_class": "guanliyuanguanli",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "630127",
+      "name": "意见反馈",
+      "font_class": "yijianfankui",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    }
+  ]
+}

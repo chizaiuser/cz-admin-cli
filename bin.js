@@ -12,7 +12,7 @@ path.join(__dirname, 'templates');
 console.log('程序启动了', program);
 
 // 工具函数
-async function generateProjectStructure(projectDir, parentDir, options) {
+async function generateProjectStructure(parentDir, options) {
   try {
     // 复制基础文件
     const parantTemp = path.join(__dirname, 'templates');
@@ -21,22 +21,30 @@ async function generateProjectStructure(projectDir, parentDir, options) {
       console.error(`模板目录不存在: ${templatePath}`);
       return;
     }
-    fs.copySync(templatePath, projectDir);
+    fs.copySync(templatePath, parentDir);
     // 读取模板类型目录下的所有文件和目录
-    const files = fs.readdirSync(parantTemp);
+    const files = fs.readdirSync(templatePath);
     // 遍历并只复制文件
     files.forEach(file => {
-      const sourcePath = path.join(parantTemp, file);
+      const sourcePath = path.join(templatePath, file);
       const targetPath = path.join(parentDir, file);
       
       // 检查是否是文件
       if (fs.statSync(sourcePath).isFile()) {
         fs.copyFileSync(sourcePath, targetPath);
         console.log(`Copied file: ${file}`);
+      } else if (fs.statSync(sourcePath).isDirectory()) {
+        // 如果是目录，确保目标目录存在并递归复制
+        if (!fs.existsSync(targetPath)) {
+          fs.ensureDirSync(targetPath);
+        }
+        fs.copySync(sourcePath, targetPath);
+        console.log(`Copied directory: ${file}`);
       }
-    }); 
+    });
     // 更新package.json
-    const packageJsonPath = path.join(__dirname, 'templates', 'package.json');
+    const packageJsonPath = path.join(__dirname, 'templates', options.template, 'package.json');
+
     console.log(packageJsonPath, 'packageJsonPath');
     if (fs.existsSync(packageJsonPath)) {
       const packageJson = fs.readJsonSync(packageJsonPath);
@@ -64,7 +72,7 @@ program
     try {
       const answers = await inquirer.prompt([
         { type: 'input', name: 'projectName', message: 'Enter project name:', default: 'threed-admin' },
-        { type: 'list', name: 'template', message: 'Select template:', choices: ['basic', 'full', 'src'] },
+        { type: 'list', name: 'template', message: 'Select template:', choices: ['react', 'vue'] },
         { type: 'confirm', name: 'useTypescript', message: 'Use TypeScript?', default: true }
       ]);
 
@@ -72,12 +80,8 @@ program
       // 创建项目目录
       const projectDir = path.join(process.cwd(), answers.projectName);
       fs.ensureDirSync(projectDir);
-      const templateDir = path.join(projectDir, answers.template);
-      fs.ensureDirSync(templateDir);
-      const publicDir = path.join(projectDir, 'public');
-      fs.ensureDirSync(publicDir);
       // 生成基础文件结构
-      await generateProjectStructure(templateDir, projectDir, answers);
+      await generateProjectStructure(projectDir, answers);
       console.log(`Project initialized successfully at ${projectDir}`);
     } catch (error) {
       console.error('初始化项目出错:', error);

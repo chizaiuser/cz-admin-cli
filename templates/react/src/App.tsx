@@ -125,56 +125,9 @@ const App = () => {
     {
       key: 'dashboard',
       icon: <AppIcon name="shuju9" size={22} />,
-      label: '数据概览',
+      label: '文章管理',
       onClick: () => navigate('/dashboard'),
-    },
-    {
-      key: 'approve',
-      icon: <AppIcon name="shenhe" size={22} />,
-      label: '办事审核',
-      onClick: () => navigate('/approve'),
-    },
-    {
-      key: 'aircraft',
-      icon: <AppIcon name="feihangqibeian-01" size={22} />,
-      label: '飞行器备案',
-      onClick: () => navigate('/aircraft'),
-    },
-    {
-      key: 'airline',
-      icon: <AppIcon name="hangxianbeian-01" size={22} />,
-      label: '航线备案',
-      onClick: () => navigate('/airline'),
-    },
-    {
-      key: 'user',
-      icon: <AppIcon name="yonghu" size={22} />,
-      label: '用户管理',
-      onClick: () => navigate('/user'),
-    },
-    {
-      key: 'analyize',
-      icon: <AppIcon name="shujufenxi" size={22} />,
-      label: '数据分析',
-      onClick: () => navigate('/analyize'),
-    },
-    {
-      key: 'team',
-      icon: <AppIcon name="tuandui" size={22} />,
-      label: '团队管理',
-      onClick: () => navigate('/team'),
-    },
-    {
-      key: 'notice',
-      icon: <AppIcon name="yijin06-jifenzhengce" size={22} />,
-      label: '政策通知',
-      onClick: () => navigate('/notice'),
-    },{
-      key: 'setting',
-      icon: <AppIcon name="xitongshezhi_fill" size={22} />,
-      label: '系统设置',
-      onClick: () => navigate('/setting'),
-    },
+    }
   ];
   const [targetMenu, setTargetMenu] = useState<any>(menuItems);
   const selectedKey = menuItems.find(item =>

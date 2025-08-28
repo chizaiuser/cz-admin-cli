@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/admin': {
-        target: 'http://192.168.0.150:9990/admin',
+        target: 'http://localhost:3000/admin',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/admin/, '')
       },

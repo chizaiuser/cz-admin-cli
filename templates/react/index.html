@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: "Weiruanyahei";
+      src: url('./src/assets/fonts/Weiruanyahei.TTF');
+    }
+    @font-face {
+      font-family: "DIN-BOLD-2";
+      src: url('./src/assets/fonts/DIN-BOLD-2.TTF');
+    }
+    #root {
+      width: 100%;
+      overflow: hidden;
+    }
+    *::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+      /* background-color: rgba(7, 117, 155, .8); */
+      background-color: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      /* background-color: #1fc6ff; */
+      background-color: #A3B7CC;
+      border-radius: 5px;
+    }
+    button:focus, button:focus-visible{
+      outline: none !important;
+    }
+  </style>
+  <body>
+    <div id="root"></div>
+    
+    <script type="module" src="/src/main.tsx"></script>
+    
+  </body>
+    <!-- <script src="https://api.map.baidu.com/getscript?type=webgl&v=1.0&ak=tLcDBpbpDldqiLJzT6EPRidmdZdvC9pQ"
+      type="text/javascript"></script> -->
+      <script src="https://api.map.baidu.com/getscript?type=web&v=3.0&ak=tLcDBpbpDldqiLJzT6EPRidmdZdvC9pQ" type="text/javascript"></script>
+      <script src="https://api.map.baidu.com/getscript?type=webgl&v=1.0&ak=tLcDBpbpDldqiLJzT6EPRidmdZdvC9pQ"
+      type="text/javascript"></script>
+      <script type="text/javascript" src="https://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+      <script type="text/javascript" src="https://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+      <!-- <script src="//mapopen.bj.bcebos.com/github/BMapGLLib/TrackAnimation/src/TrackAnimation.min.js"></script> -->
+</html>
